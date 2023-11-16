@@ -38,7 +38,7 @@ class Mastermind:
              f"Your performance, though subpar and {y} long, is still better than nothing. Just barely."
              ]
         ]
-        print(insults[x][random.randint(0, len(insults) - 1)])
+        print(insults[x][random.randint(0, len(insults[x]) - 1)])
 
 #mastermind tsundere ver.
 import random
