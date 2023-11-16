@@ -1,7 +1,6 @@
 class Mastermind:
     def __init__(self):
-        # self._secret, self.gus = [random.randint(1, 6) for _ in range(4)], 0
-        self._secret, self.gus = [i for i in range(4)], 0
+        self._secret, self.gus = [random.randint(1, 6) for _ in range(4)], 0
 
     def guess(self, guess: list[int], cbf):
         if len(guess) != 4: return [self.get_insults(0, 'what?!?'), self.guess(cbf(), cbf)]
@@ -10,8 +9,7 @@ class Mastermind:
         ans += ans.join(["o" for i, j in enumerate(self._secret)if str(j) != guess[i] and str(j) in guess])
         print(ans)
         if ans == '****': return [self.get_insults(2,self.gus)]  
-        if '*' in ans:
-            return [self.get_insults(1,f"'{guess}'"),self.guess(cbf(), cbf)]
+        if '*' in ans: return [self.get_insults(1,f"'{guess}'"),self.guess(cbf(), cbf)]
         return [self.get_insults(0,f"'{guess}'"),self.guess(cbf(), cbf)]
 
     
